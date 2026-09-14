@@ -11,128 +11,186 @@
 <body>
     <main class="site-shell">
         <!-- <p class="site-label">Info site</p> -->
-    <!-- Slideshow container -->
-    <div class="slideshow-container">
+        <!-- Slideshow container -->
+        <div class="slideshow-container">
 
-        <!-- Full-width images with number and caption text -->
-        <div class="mySlides fade">
-            <div class="numbertext">1 / 7</div>
-            <img src="img/IMG_9319.jpg" style="width:100%">
+            <!-- Full-width images with number and caption text -->
+            <div class="mySlides fade">
+                <div class="numbertext">1 / 7</div>
+                <img src="img/IMG_9319.jpg" style="width:100%">
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">2 / 7</div>
+                <img src="img/IMG_9326.jpg" style="width:100%">
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">3 / 7</div>
+                <img src="img/IMG_9331.jpg" style="width:100%">
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">4 / 7</div>
+                <img src="img/IMG_9359 (2).jpg" style="width:100%">
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">5 / 7</div>
+                <img src="img/IMG_9366 (2).jpg" style="width:100%">
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">6 / 7</div>
+                <img src="img/IMG_9382 (2).jpg" style="width:100%">
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">7 / 7</div>
+                <img src="img/IMG_9422.jpg" style="width:100%">
+            </div>
+
+            <!-- Next and previous buttons -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
         </div>
+        <br>
 
-        <div class="mySlides fade">
-            <div class="numbertext">2 / 7</div>
-            <img src="img/IMG_9326.jpg" style="width:100%">
-        </div>
+        <script>
+            let slideIndex = 1;
+            showSlides(slideIndex);
 
-        <div class="mySlides fade">
-            <div class="numbertext">3 / 7</div>
-            <img src="img/IMG_9331.jpg" style="width:100%">
-        </div>
-
-        <div class="mySlides fade">
-            <div class="numbertext">4 / 7</div>
-            <img src="img/IMG_9359 (2).jpg" style="width:100%">
-        </div>
-
-        <div class="mySlides fade">
-            <div class="numbertext">5 / 7</div>
-            <img src="img/IMG_9366 (2).jpg" style="width:100%">
-        </div>
-
-        <div class="mySlides fade">
-            <div class="numbertext">6 / 7</div>
-            <img src="img/IMG_9382 (2).jpg" style="width:100%">
-        </div>
-
-        <div class="mySlides fade">
-            <div class="numbertext">7 / 7</div>
-            <img src="img/IMG_9422.jpg" style="width:100%">
-        </div>
-
-        <!-- Next and previous buttons -->
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-    </div>
-    <br>    
-
-    <script>
-        let slideIndex = 1;
-        showSlides(slideIndex);
-
-        // Next/previous controls
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
-        }
-
-        // Thumbnail image controls
-        function currentSlide(n) {
-            showSlides(slideIndex = n);
-        }
-
-        function showSlides(n) {
-            let i;
-            let slides = document.getElementsByClassName("mySlides");
-            let dots = document.getElementsByClassName("dot");
-            if (n > slides.length) {slideIndex = 1}
-            if (n < 1) {slideIndex = slides.length}
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
+            // Next/previous controls
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
             }
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
+
+            // Thumbnail image controls
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
             }
-            slides[slideIndex - 1].style.display = "block";
-            if (dots.length) {
-                dots[slideIndex - 1].className += " active";
+
+            function showSlides(n) {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                let dots = document.getElementsByClassName("dot");
+                if (n > slides.length) { slideIndex = 1 }
+                if (n < 1) { slideIndex = slides.length }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                if (dots.length) {
+                    dots[slideIndex - 1].className += " active";
+                }
             }
-        }
-    </script>
+        </script>
 
-    <div class="brand-mark">
-        <img src="img/curio-03-geel-logo-rgb.png" alt="Curio-logo">
-    </div>
-
-    <section class="info-row">
-        <div class="info-copy">
-        <h1>Sfeer op de afdeling Software Development</h1>
-        <p>De sfeer op de afdeling Software Development van Curio is meestal gezellig en ontspannen. Studenten werken veel zelfstandig aan hun opdrachten, maar helpen elkaar ook wanneer iemand ergens niet uitkomt. Er wordt regelmatig gelachen en tussendoor is er ruimte voor een praatje. De docenten zijn goed benaderbaar en proberen je te helpen wanneer je vragen hebt. Hierdoor voelt de afdeling als een fijne plek om te leren en jezelf te ontwikkelen.</p>
+        <div class="brand-mark">
+            <img src="img/curio-03-geel-logo-rgb.png" alt="Curio-logo" onclick="openModal(this)">
         </div>
-        <img src="img/foto scholieren.jpg" alt="">
-    </section>
 
-    <section class="info-row info-row--reverse">
-        <div class="info-copy">
-        <h1>Het rooster en de opleiding</h1>
-        <p>Bij de opleiding Software Development van Curio is het schooljaar verdeeld in verschillende vakken en onderdelen. In het rooster staan onder andere Webdevelopment, Nederlands, Engels, programmeren en projecten. Op sommige dagen heb je meerdere lessen achter elkaar en op andere dagen heb je wat meer tijd om zelfstandig aan opdrachten te werken.</p>
-        </div>
-        <img src="img/Rooster eerste leerjaar.png" alt="">
-    </section>
+        <section class="info-row">
+            <div class="info-copy">
+                <h1>Sfeer op de afdeling Software Development</h1>
+                <p>De sfeer op de afdeling Software Development van Curio is meestal gezellig en ontspannen. Studenten
+                    werken veel zelfstandig aan hun opdrachten, maar helpen elkaar ook wanneer iemand ergens niet
+                    uitkomt. Er wordt regelmatig gelachen en tussendoor is er ruimte voor een praatje. De docenten zijn
+                    goed benaderbaar en proberen je te helpen wanneer je vragen hebt. Hierdoor voelt de afdeling als een
+                    fijne plek om te leren en jezelf te ontwikkelen.</p>
+            </div>
+            <div class="column">
+                <img src="img/foto scholieren.jpg" onclick="openModal(this)" class="hover-shadow">
+            </div>
+        </section>
 
-    <section class="info-row">
-        <div class="info-copy">
-        <h1>Vakanties en vrije dagen</h1>
-        <p>Naast de normale lessen zijn er natuurlijk ook vakanties en vrije dagen. In het schooljaar 2026-2027 heeft Curio onder andere herfstvakantie van 19 t/m 23 oktober, kerstvakantie van 21 december t/m 1 januari, voorjaarsvakantie van 8 t/m 12 februari, meivakantie van 26 april t/m 7 mei en zomervakantie van 26 juli t/m 3 september. Er zijn daarnaast losse vrije dagen, zoals Tweede Paasdag en Tweede Pinksterdag.</p>
-        </div>
-        <img src="img/images.jpg" alt="">
-    </section>
+        <section class="info-row info-row--reverse">
+            <div class="info-copy">
+                <h1>Het rooster en de opleiding</h1>
+                <p>Bij de opleiding Software Development van Curio is het schooljaar verdeeld in verschillende vakken en
+                    onderdelen. In het rooster staan onder andere Webdevelopment, Nederlands, Engels, programmeren en
+                    projecten. Op sommige dagen heb je meerdere lessen achter elkaar en op andere dagen heb je wat meer
+                    tijd om zelfstandig aan opdrachten te werken.</p>
+            </div>
+            <div class="column">
+                <img src="img/Rooster eerste leerjaar.png" onclick="openModal(this)" class="hover-shadow">
+            </div>
+        </section>
 
-    <section class="info-row info-row--reverse">
-        <div class="info-copy">
-        <h1>De vakken op de opleiding Software Development</h1>
-        <p>Bij Software Development bij Curio krijg je verschillende vakken. Bij PRA leer je programmeren en bij WEB leer je websites maken. Nederlands en Engels helpen je met communicatie. Bij PRO leer je samenwerken en plannen. NAT behandelt verschillende onderwerpen binnen de opleiding. Bij SLB/LOB krijg je begeleiding en werk je aan je toekomst.</p>
-    </div>
-            <img src="img/Schermafbeelding 2026-09-11 111441.png" alt="">
-    </section>
+        <section class="info-row">
+            <div class="info-copy">
+                <h1>Vakanties en vrije dagen</h1>
+                <p>Naast de normale lessen zijn er natuurlijk ook vakanties en vrije dagen. In het schooljaar 2026-2027
+                    heeft Curio onder andere herfstvakantie van 19 t/m 23 oktober, kerstvakantie van 21 december t/m 1
+                    januari, voorjaarsvakantie van 8 t/m 12 februari, meivakantie van 26 april t/m 7 mei en
+                    zomervakantie van 26 juli t/m 3 september. Er zijn daarnaast losse vrije dagen, zoals Tweede Paasdag
+                    en Tweede Pinksterdag.</p>
+            </div>
+            <div class="column">
+                <img src="img/images.jpg" onclick="openModal(this)" class="hover-shadow">
+            </div>
+        </section>
 
-    <section class="info-row">
-        <div class="info-copy">
-        <h1>Wat biedt Curio aan bij Software Development?</h1>
-        <p>Bij Curio krijg je tijdens Software Development veel mogelijkheden om jezelf te ontwikkelen. Je leert programmeren en software maken met talen zoals C#, PHP en JavaScript. Je kunt de opleiding versnellen of vertragen in overleg met je mentor. Ook zijn er keuzedelen waarmee je je kunt specialiseren, bijvoorbeeld in frontend of mobile development. Je kunt kiezen tussen BOL en BBL. Na de opleiding kun je gaan werken of doorstuderen aan het hbo.</p>
-    </div>
-        <img src="img/Opleidingsoverzicht3.png" alt="">
-    </section>
+        <section class="info-row info-row--reverse">
+            <div class="info-copy">
+                <h1>De vakken op de opleiding Software Development</h1>
+                <p>Bij Software Development bij Curio krijg je verschillende vakken. Bij PRA leer je programmeren en bij
+                    WEB leer je websites maken. Nederlands en Engels helpen je met communicatie. Bij PRO leer je
+                    samenwerken en plannen. NAT behandelt verschillende onderwerpen binnen de opleiding. Bij SLB/LOB
+                    krijg je begeleiding en werk je aan je toekomst.</p>
+            </div>
+            <div class="column">
+                <img src="img/Schermafbeelding 2026-09-11 111441.png" onclick="openModal(this)"
+                    class="hover-shadow">
+            </div>
+        </section>
+
+        <section class="info-row">
+            <div class="info-copy">
+                <h1>Wat biedt Curio aan bij Software Development?</h1>
+                <p>Bij Curio krijg je tijdens Software Development veel mogelijkheden om jezelf te ontwikkelen. Je leert
+                    programmeren en software maken met talen zoals C#, PHP en JavaScript. Je kunt de opleiding
+                    versnellen of vertragen in overleg met je mentor. Ook zijn er keuzedelen waarmee je je kunt
+                    specialiseren, bijvoorbeeld in frontend of mobile development. Je kunt kiezen tussen BOL en BBL. Na
+                    de opleiding kun je gaan werken of doorstuderen aan het hbo.</p>
+            </div>
+            <div class="column">
+                <img src="img/Opleidingsoverzicht3.png" onclick="openModal(this)"
+                    class="hover-shadow">
+            </div>
+        </section>
     </main>
+
+    <div class="row">
+
+
+
+    </div>
+
+    <div id="myModal" class="modal">
+        <span class="close cursor" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="" style="width:100%">
+        </div>
+
+        <script>
+            // Open the Modal
+            function openModal(image) {
+                const modalImage = document.getElementById("modalImage");
+                modalImage.src = image.src;
+                modalImage.alt = image.alt;
+                document.getElementById("myModal").style.display = "block";
+            }
+
+            // Close the Modal
+            function closeModal() {
+                document.getElementById("myModal").style.display = "none";
+            }
+
+        </script>
 
 </body>
 
