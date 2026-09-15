@@ -167,21 +167,27 @@
     <div class="row">
 
 
-
     </div>
 
     <div id="myModal" class="modal">
         <span class="close cursor" onclick="closeModal()">&times;</span>
         <div class="modal-content">
-            <img id="modalImage" src="" alt="" style="width:100%">
+            <img id="modalImage" src="" alt="">
+            <div id="modalText" class="modal-text"></div>
         </div>
 
         <script>
             // Open the Modal
-            function openModal(image) {
+            function openModal(image) {  
                 const modalImage = document.getElementById("modalImage");
+                const modalText = document.getElementById("modalText");
+                const infoRow = image.closest(".info-row");
                 modalImage.src = image.src;
                 modalImage.alt = image.alt;
+                // Hier word de tekst opgehaald ? = if en : = Else
+                modalText.innerHTML = infoRow
+                    ? infoRow.querySelector(".info-copy").innerHTML
+                    : "";
                 document.getElementById("myModal").style.display = "block";
             }
 
